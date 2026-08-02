@@ -1787,7 +1787,7 @@ class KubeSpawner(Spawner):
               .. code-block:: python
 
                  {
-                     "image_spec": "jupyter/datascience-notebook:{value}",
+                     "image_spec": "quay.io/jupyter/datascience-notebook:{value}",
                      "default_url": "/lab",
                      "extra_labels: {
                         "user-specified-image-tag": "{value}",
@@ -1831,16 +1831,16 @@ class KubeSpawner(Spawner):
                             'display_name': 'Image',
                             'choices': {
                                 'base': {
-                                    'display_name': 'jupyter/base-notebook:latest',
+                                    'display_name': 'quay.io/jupyter/base-notebook:latest',
                                     'kubespawner_override': {
-                                        'image': 'jupyter/base-notebook:latest'
+                                        'image': 'quay.io/jupyter/base-notebook:latest'
                                     },
                                 },
                                 'minimal': {
-                                    'display_name': 'jupyter/minimal-notebook:latest',
+                                    'display_name': 'quay.io/jupyter/minimal-notebook:latest',
                                     'default': True,
                                     'kubespawner_override': {
-                                        'image': 'jupyter/minimal-notebook:latest'
+                                        'image': 'quay.io/jupyter/minimal-notebook:latest'
                                     },
                                 },
                             },
@@ -1848,8 +1848,8 @@ class KubeSpawner(Spawner):
                                 'enabled': True,
                                 'display_name': 'Other image',
                                 'display_name_in_choices': 'Enter image manually',
-                                'validation_regex': '^jupyter/.+:.+$',
-                                'validation_message': 'Must be an image matching ^jupyter/<name>:<tag>$',
+                                'validation_regex': '^quay\\.io/jupyter/.+:.+$',
+                                'validation_message': 'Must be an image matching ^quay\\.io/jupyter/<name>:<tag>$',
                                 'kubespawner_override': {'image': '{value}'},
                             },
                         },
@@ -1879,9 +1879,9 @@ class KubeSpawner(Spawner):
                             'display_name': 'Image',
                             'choices': {
                                 'base': {
-                                    'display_name': 'jupyter/base-notebook:latest',
+                                    'display_name': 'quay.io/jupyter/base-notebook:latest',
                                     'kubespawner_override': {
-                                        'image': 'jupyter/base-notebook:latest'
+                                        'image': 'quay.io/jupyter/base-notebook:latest'
                                     },
                                 },
                             },
@@ -1889,8 +1889,8 @@ class KubeSpawner(Spawner):
                                 'enabled': True,
                                 'display_name': 'Other image',
                                 'display_name_in_choices': 'Enter image manually',
-                                'validation_regex': '^jupyter/.+:.+$',
-                                'validation_message': 'Must be an image matching ^jupyter/<name>:<tag>$',
+                                'validation_regex': '^quay\\.io/jupyter/.+:.+$',
+                                'validation_message': 'Must be an image matching ^quay\\.io/jupyter/<name>:<tag>$',
                                 'kubespawner_override': {'image': '{value}'},
                             },
                         },
@@ -3675,7 +3675,7 @@ class KubeSpawner(Spawner):
         Some examples of `user_options` to validate are::
 
             {"profile": "demo-1", "image": "minimal"}
-            {"profile": "demo-1", "image--unlisted-choice": "jupyter/datascience-notebook:latest"}
+            {"profile": "demo-1", "image--unlisted-choice": "quay.io/jupyter/datascience-notebook:latest"}
             {}
             {"garbage-arrived-via-rest-api": "anything"}
             {"profile": "demo-1", "garbage-arrived-via-rest-api": "anything"}
